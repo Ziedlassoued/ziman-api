@@ -9,24 +9,24 @@ Content-Type: application/json
     "status": "Presumed dead"
 }
 
+### GET a single character
+
+GET http://localhost:3000/api/characters/Walter HTTP/1.1
+
+
+
 
 
 
 /////////////////////////////////////////////////////////////
 
 
-
-
-
-
-
 ### GET all users
 
 GET http://localhost:3000/api/users HTTP/1.1
 
-### GET a single user
 
-GET http://localhost:3000/api/users/hankDEA HTTP/1.1
+
 
 ### GET a single user which doesn't exist
 

@@ -36,9 +36,15 @@ app.post('/api/characters', async (request, response) => {
   }
 });
 
-/* app.get('/', (_req, res) => {
-  res.send('Hello World!');
-}); */
+app.get('/api/characters/:name', async (request, response) => {
+  const name = request.params.name;
+  const existingCharacter = await getCharacterCollection().findOne({ name });
+  if (existingCharacter) {
+    response.status(200).send(existingCharacter);
+  } else {
+    response.status(404).send('The requested character does not exist');
+  }
+});
 
 connectDatabase(process.env.MONGODB_URI).then(() =>
   app.listen(port, () => {
