@@ -46,6 +46,11 @@ app.get('/api/characters/:name', async (request, response) => {
   }
 });
 
+app.get('/api/characters', async (_request, response) => {
+  const characterDocuments = await getCharacterCollection().find().toArray();
+  response.status(200).send(characterDocuments);
+});
+
 connectDatabase(process.env.MONGODB_URI).then(() =>
   app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);

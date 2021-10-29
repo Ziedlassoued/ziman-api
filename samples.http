@@ -1,4 +1,4 @@
-### POST a user
+### POST a character
 POST http://localhost:3000/api/characters HTTP/1.1
 Content-Type: application/json
 
@@ -9,21 +9,20 @@ Content-Type: application/json
     "status": "Presumed dead"
 }
 
+
 ### GET a single character
-
-GET http://localhost:3000/api/characters/Walter HTTP/1.1
-
+GET http://localhost:3000/api/characters/Walter White HTTP/1.1
 
 
+### GET all characters
+GET http://localhost:3000/api/characters HTTP/1.1
 
 
 
 /////////////////////////////////////////////////////////////
 
 
-### GET all users
 
-GET http://localhost:3000/api/users HTTP/1.1
 
 
 
