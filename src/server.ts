@@ -23,9 +23,6 @@ app.post('/api/characters', async (request, response) => {
   const characterCollection = getCharacterCollection();
   const existingCharacter = await characterCollection.findOne({
     name: newCharacter.name,
-    nickname: newCharacter.nickname,
-    birthday: newCharacter.birthday,
-    status: newCharacter.satus,
   });
   if (!existingCharacter) {
     const characterDocument = await characterCollection.insertOne(newCharacter);
