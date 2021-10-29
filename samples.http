@@ -18,6 +18,8 @@ GET http://localhost:3000/api/characters/Walter White HTTP/1.1
 GET http://localhost:3000/api/characters HTTP/1.1
 
 
+### Delete a character
+DELETE http://localhost:3000/api/characters/Walter White HTTP/1.1
 
 /////////////////////////////////////////////////////////////
 
@@ -31,8 +33,7 @@ GET http://localhost:3000/api/characters HTTP/1.1
 
 GET http://localhost:3000/api/users/Noel HTTP/1.1
 
-### Delete a user
-DELETE http://localhost:3000/api/users/Leon HTTP/1.1
+
 
 
 

@@ -51,6 +51,21 @@ app.get('/api/characters', async (_request, response) => {
   response.status(200).send(characterDocuments);
 });
 
+app.delete('/api/characters/:name', async (request, response) => {
+  const searchedName = request.params.name;
+  const characterCollection = getCharacterCollection();
+  const isCharacterKnown = await characterCollection.findOne({
+    name: searchedName,
+  });
+
+  if (isCharacterKnown) {
+    characterCollection.deleteOne(isCharacterKnown);
+    response.status(200).send(`${searchedName} has been deleted`);
+  } else {
+    response.status(404).send('The requested character does not exist');
+  }
+});
+
 connectDatabase(process.env.MONGODB_URI).then(() =>
   app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
