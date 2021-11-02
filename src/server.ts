@@ -66,6 +66,20 @@ app.delete('/api/characters/:name', async (request, response) => {
   }
 });
 
+app.post('/api/characters/:name', async (request, response) => {
+  const characterCollection = getCharacterCollection();
+  const character = request.params.name;
+
+  const updated = await characterCollection.updateOne(
+    { name: character },
+    { $set: request.body }
+  );
+  if (updated.matchedCount === 0) {
+    response.status(404).send('The requested character does not exist');
+    return;
+  }
+  response.send('Character is updated');
+});
 connectDatabase(process.env.MONGODB_URI).then(() =>
   app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);

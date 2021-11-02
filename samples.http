@@ -2,12 +2,15 @@
 POST http://localhost:3000/api/characters HTTP/1.1
 Content-Type: application/json
 
-{
+
+  {
     "name": "Walter White",
-    "nickname": "Heisenberg",
     "birthday": "09-07-1958",
-    "status": "Presumed dead"
-}
+    "status": "Alive"
+  }
+
+
+
 
 
 ### GET a single character
@@ -20,6 +23,16 @@ GET http://localhost:3000/api/characters HTTP/1.1
 
 ### Delete a character
 DELETE http://localhost:3000/api/characters/Walter White HTTP/1.1
+
+
+### Insert a new field
+
+POST http://localhost:3000/api/characters/Walter White HTTP/1.1
+Content-Type: application/json
+
+{
+    "nickname": "Cap n' Cook"
+}
 
 /////////////////////////////////////////////////////////////
 
